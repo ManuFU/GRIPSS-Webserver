@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: gripss-webserver-service
+  namespace: gripss-dev
 spec:
   selector:
     app: gripss-webserver
