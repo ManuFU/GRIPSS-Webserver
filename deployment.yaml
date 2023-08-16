@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gripss-webserver-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gripss-webserver
+  template:
+    metadata:
+      labels:
+        app: gripss-webserver
+    spec:
+      containers:
+      - name: gripss-webserver
+        image: emanuele447/gripss-webserver:latest

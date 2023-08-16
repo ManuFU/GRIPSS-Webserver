@@ -1,0 +1,10 @@
+flask
+aiohttp
+asyncio
+pandas
+bs4
+ultimate-sitemap-parser
+nest_asyncio
+requests
+pytest==7.0.0
+pytest-flask==1.2.0
