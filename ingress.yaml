@@ -1,7 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: my-ingress
+  name: gripss-ingress
+  namespace: default
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
@@ -12,6 +13,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: YOUR_SERVICE_NAME
+            name: gripss-webserver-service
             port:
-              number: YOUR_SERVICE_PORT
+              number: 80
