@@ -5,9 +5,9 @@ metadata:
   namespace: default
 spec:
   selector:
-    app: gripss-webserver
+    app: gripss-webserver  # Assuming this label selects your pods
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 5000
-
+  - protocol: TCP
+    port: 80
+    nodePort: 30080  # This is the port on each node. It's in the range 30000-32767.
+  type: NodePort
