@@ -5,12 +5,27 @@
 </head>
 <body>
     <h1>List of Saved Documents</h1>
+
+    <!-- Display area for scraper status -->
+    <div id="status">Waiting for scraper to start...</div>
+
     <ul>
         {% for file in files %}
             <li><a href="{{ url_for('static', filename=file) }}" download>{{ file }}</a></li>
-
-
         {% endfor %}
     </ul>
+
+    <!-- Socket.IO client script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+    <!-- Your custom script to listen for updates -->
+    <script type="text/javascript">
+        var socket = io.connect('http://' + document.domain + ':' + location.port + '/progress');
+        socket.on('status', function(data) {
+            // Update your frontend
+            console.log(data.message);
+            document.getElementById('status').innerText = data.message;
+        });
+    </script>
 </body>
 </html>
