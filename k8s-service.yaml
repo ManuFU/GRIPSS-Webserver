@@ -5,9 +5,10 @@ metadata:
   namespace: default
 spec:
   selector:
-    app: gripss-webserver  # Assuming this label selects your pods
+    app: gripss-webserver # This should match the label of your pods
   ports:
-  - protocol: TCP
-    port: 80
-    nodePort: 30080  # This is the port on each node. It's in the range 30000-32767.
+    - protocol: TCP
+      port: 80
+      targetPort: 5000 # Flask app is running on this port inside the pod
+      nodePort: 30080
   type: NodePort
