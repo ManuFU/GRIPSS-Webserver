@@ -6,7 +6,7 @@ import pandas as pd
 from usp.tree import sitemap_tree_for_homepage
 from datetime import datetime
 from pathlib import Path
-from flask_socketio import SocketIO, emit
+from flask_socketio import  emit
 
 
 async def fetch_sitemap(session, url, semaphore: asyncio.Semaphore, processed_urls, total_urls):
