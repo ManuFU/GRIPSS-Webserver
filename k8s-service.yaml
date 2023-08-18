@@ -10,5 +10,5 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 5000 # Flask app is running on this port inside the pod
-      nodePort: 30080
+      nodePort: 32123
   type: NodePort
