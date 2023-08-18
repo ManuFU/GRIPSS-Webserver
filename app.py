@@ -1,5 +1,4 @@
-import asyncio
-
+from threading import Thread
 from flask import Flask, jsonify
 from flask import render_template
 import os
@@ -23,12 +22,11 @@ def sitemap_scrap():
     industryName = data.get("industryName", "")
 
     # Start the background task with the provided data
-    asyncio.create_task(get_urls_from_data_folder(urls, industryName))
+    thread = Thread(target=get_urls_from_data_folder, args=(urls, industryName))
+    thread.start()
 
     return jsonify({"message": "Processing started, check back later for results."})
 
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
-# if __name__ == "__main__":
-#     app.run(debug=True)
